@@ -1,14 +1,14 @@
 import "./App.css";
 import MainRoutes from "./Components/MainRoutes";
-import { Cart } from "./Pages/Cart";
-import Payment from "./Pages/Payment";
+import Footer from "./Pages/Footer/Footer";
 
+import NavBar from "./Pages/NavBar";
 function App() {
   return (
     <>
-    <Cart/>
+      <NavBar />
       <MainRoutes />
-      
+      <Footer />
     </>
   );
 }

@@ -9,43 +9,46 @@ import { Radio, ChakraProvider,RadioGroup,Stack,  Menu,
     MenuDivider, } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 
 export const SingleProductPage = () => {
+    const location=useLocation()
+  
     const [data, setData] = useState([])
     const id = useParams()
-
+    const [pageName,Id]=location.pathname.split("/:")
     useEffect(() => {
-        axios.get(`https://quaint-fawn-dungarees.cyclic.app/lending_Page`)
-            .then((res) => setData(res.data.medicine_Offers))
+        axios.get(`https://quaint-fawn-dungarees.cyclic.app${pageName}`)
+            .then((res) => setData(res.data))
     }, [])
-console.log(data[1])
+    console.log(data[+id],pageName,Id)
     return (
+       
         <Box width="87%" margin="auto" marginTop="100px">
            <Flex>
-                <Box>    /** first box */
-                    <Image width="90%" src={data[1]?.image}/>
+                <Box>   
+                    <Image width="90%" src={data[Id-1]?.image}/>
                 </Box>
-                <Box border="1px solid red" width="40%">    /** second box */
-                <Box fontSize="28px">{data[1]?.title}</Box>
+                <Box border="1px solid red" width="40%">    
+                <Box fontSize="28px">{data[+Id-1]?.name}</Box>
                 <Box fontSize="18px" mt="4">Tata 1mg Healthcare Solutions rivate Limited</Box>
                 <Box fontWeight="bold" m="4" fontSize="16px">1475 Ratings & 457 Reviews</Box>
                 <Box width="90%">
                 <Flex m="15" border="1px solid grey">
                         <Box m="10" >
-                        <Image width="80px"   src={data[2]?.image}/>
+                        <Image width="80px"   src={data[+Id]?.image}/>
                         </Box>
                         <Box >
-                        <Box ml="10" mt="5%" textAlign='left'>{data[2]?.title}</Box >
+                        <Box ml="10" mt="5%" textAlign='left'>{data[+Id]?.title}</Box >
                         <Box mt="5" color="orange">More Details</Box >
                         </Box>
                     </Flex>
                     <Flex m="15" border="1px solid grey">
                         <Box  m="10" >
-                        <Image width="80px"   src={data[3]?.image}/>
+                        <Image width="80px"   src={data[+Id+1]?.image}/>
                         </Box>
                         <Box>
-                        <Box ml="10" mt="5%" textAlign='left'>{data[3]?.title}</Box >
+                        <Box ml="10" mt="5%" textAlign='left'>{data[+Id+1]?.title}</Box >
                         <Box  mt="5" color="orange">More Details</Box >
                         </Box>
                     </Flex>
@@ -59,10 +62,10 @@ console.log(data[1])
       <RadioGroup defaultValue='1'>
   <Stack spacing={5} m="5" >
     <Radio colorScheme='red' value='1'>
-     {data[1]?.price}
+     {data[+Id]?.price}
     </Radio>
     <Radio colorScheme='red' value='2'>
-    <Box mr="5">{data[1]?.price} + free shipping and 3% Extra NeuCoins </Box>
+    <Box mr="5">{data[+Id]?.price} + free shipping and 3% Extra NeuCoins </Box>
       </Radio>
       <Box>inclusive of all tax</Box>
   </Stack>

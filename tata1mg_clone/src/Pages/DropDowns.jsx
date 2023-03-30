@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 import {
   Menu,
   MenuButton,
@@ -80,11 +81,12 @@ export default function DropDowns() {
             {({ isOpen }) => (
               <>
                 <MenuButton fontSize={"12px"} rightIcon={<ChevronDownIcon />}>
-                  Vitamins & Nutrition
+                <Link to="/vitamins" >  Vitamins & Nutrition </Link>
                 </MenuButton>
 
                 <MenuList fontSize={"12px"} p={0}>
                   <Text px={1} fontWeight={600} py={2} fontSize="12px">
+                   
                     Vitamins & Supplements
                   </Text>
                   {dropDown2.Vitamins_Supplements.map((item, id) => {

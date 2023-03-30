@@ -6,9 +6,8 @@ import Payment from "./Pages/Payment";
 function App() {
   return (
     <>
-    <Cart/>
       <MainRoutes />
-      <Payment/>
+      {/* <Payment/> */}
     </>
   );
 }

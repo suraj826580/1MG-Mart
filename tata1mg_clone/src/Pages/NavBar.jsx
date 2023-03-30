@@ -23,7 +23,7 @@ const navlink = [
   { title: "CARE PLAN", link: "" },
 ];
 
-export default function Nav() {
+export default function NavBar() {
   return (
     <>
       <Box px={0}>

@@ -10,41 +10,41 @@ import {
   faCircleChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-const healthConcerns = [
+const ayurveda = [
   {
-    title: "Diabetes Care",
+    title: "Dabur",
     image:
-      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/c2a0598f-483c-48ff-9783-71e402aa28d3.png",
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/onneibznnitqsn5twumi.png",
   },
   {
-    title: "Cardiac Care",
+    title: " Baidyanath",
     image:
-      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/ab1da5f4-c074-47d2-b278-a5fbd2c93f1f.png",
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/dekl61bd9thu21vmypkm.png",
   },
   {
-    title: "Stomach Care",
+    title: "Dhootapapershwar",
     image:
-      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/702457a8-ff7d-43a6-bd1d-6bcb278ce686.png",
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/idgjl700nkz6w8lzvjwc.png",
   },
   {
-    title: "Liver Care",
+    title: "Sri Care",
     image:
-      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/995e64ba-5bd9-42bc-8db6-5dc0b821c89d.png",
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/kvwlak2daqdzaflvgx2u.png",
   },
   {
-    title: "Bone Joints & Muscle Care",
+    title: "Jiva and Ayurveda",
     image:
-      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/ba975795-98dc-4cd8-8b55-3c20230d70e3.png",
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/guiy84rk41kgofd5atft.png",
   },
   {
-    title: "Kidney Care",
+    title: "Kerela Ayurveda",
     image:
-      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/e77d5099-d905-4462-ab9d-b51802e3739b.png",
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/shxhntpjye31tu8frfjs.png",
   },
   {
-    title: "Derma Care",
+    title: "Zandu",
     image:
-      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/6f9a726a-4a98-42e6-a834-67381be5e330.png",
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/kvwlak2daqdzaflvgx2u.png",
   },
   {
     title: "Respiratory Care",
@@ -58,7 +58,7 @@ const healthConcerns = [
   },
 ];
 
-export default function HealthConcernCarouselCard() {
+export default function Ayurveda() {
   var settings = {
     dots: false,
     infinite: true,
@@ -67,7 +67,7 @@ export default function HealthConcernCarouselCard() {
     slidesToScroll: 3,
   };
 
-  const [slider, setSlider] = useState(healthConcerns);
+  const [slider, setSlider] = useState(ayurveda);
   return (
     <>
       <Box position={"relative"}>
@@ -90,10 +90,10 @@ export default function HealthConcernCarouselCard() {
         </Box>
         <Box px={10}>
           <Text ml={10} fontSize="20px" fontWeight={600}>
-            Shop by health concerns
+            Ayurveda
           </Text>
           <Slider {...settings} ref={(slider) => setSlider(slider)}>
-            {healthConcerns.map((item) => {
+            {ayurveda.map((item) => {
               return <SimpleCard {...item} key={Math.random()} />;
             })}
           </Slider>

@@ -8,7 +8,7 @@ function App() {
     <>
     <Cart/>
       <MainRoutes />
-      <Payment/>
+      
     </>
   );
 }

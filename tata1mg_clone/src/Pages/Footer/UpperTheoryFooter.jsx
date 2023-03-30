@@ -1,5 +1,14 @@
 import React from "react";
-import { Box, Center, Divider, Heading, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Center,
+  Divider,
+  Flex,
+  Heading,
+  Input,
+  Text,
+} from "@chakra-ui/react";
 
 const setting1 = {
   fontWeight: "bold",
@@ -106,8 +115,50 @@ export default function UpperTheoryFooter() {
       </Box>
       <Box bg={"#fff"} pt={10}>
         <Center>
-          <Heading fontSize={25} fontWeight={600}> INDIA’S LARGEST HEALTHCARE PLATFORM</Heading>
+          <Heading fontSize={25} fontWeight={400}>
+            {" "}
+            INDIA’S LARGEST HEALTHCARE PLATFORM
+          </Heading>
         </Center>
+        <Flex justifyContent={"space-evenly"} py={5}>
+          <Box>
+            <Heading>260m+</Heading>
+            <Text textAlign={"center"}>Visitors</Text>
+          </Box>
+          <Box>
+            <Heading>31m+</Heading>
+            <Text textAlign={"center"}>Orders Delivered</Text>
+          </Box>
+          <Box>
+            <Heading>1800+</Heading>
+            <Text textAlign={"center"}>Cities</Text>
+          </Box>
+        </Flex>
+        <Divider py={3} w={"90%"} margin={"auto"} />
+        <Box mt={7}>
+          <Flex justifyContent={"center"} alignItems={"center"} gap={10}>
+            <Box>
+              <Text fontSize={"20px"} fontWeight={"400"}>
+                Get the link to download App
+              </Text>
+            </Box>
+            <Box>
+              <Input
+                placeholder="Enter Phone Number"
+                border={"none"}
+                bg={"#f1f5f7"}
+                borderRadius={"0px"}
+                px={5}
+              />
+            </Box>
+            <Box>
+              <Button bg={"#fe6f60"} color={"#fff"}>
+                Send link
+              </Button>
+            </Box>
+          </Flex>
+        </Box>
+        <Divider py={3} />
       </Box>
     </>
   );

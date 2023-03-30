@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <Box pt={10} bg={"#f7f6f7"}>
       <UpperTheoryFooter />
-      {/* <BottomFooter /> */}
+      <BottomFooter />
     </Box>
   );
 }

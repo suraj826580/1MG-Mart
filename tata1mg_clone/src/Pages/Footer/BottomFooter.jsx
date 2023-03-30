@@ -122,7 +122,7 @@ export default function BottomFooter() {
           healthcare platform
         </Text>
       </Container>
-      <Divider py={5} />
+      <Divider py={5}  />
     </Box>
   );
 }

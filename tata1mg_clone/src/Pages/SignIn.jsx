@@ -11,8 +11,8 @@ import {
   Button,useDisclosure,Box,Text,Heading,Input
 } from '@chakra-ui/react'
 import Banner from '../Components/Slider'
-import { SignUp } from '../Redux/Authication/action';
-import { Login } from '../Redux/Authication/action';
+import { SignUp } from '../redux/Authication/action';
+// import { Login } from '../Redux/Authication/action';
 
 import { useDispatch, useSelector } from 'react-redux';
 const SignIn = () => {

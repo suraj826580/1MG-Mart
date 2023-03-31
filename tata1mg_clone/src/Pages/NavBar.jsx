@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import DropDowns from "./DropDowns";
 import SignIn from "./SignIn";
+import SignUp from "./SignUp";
 const navlink = [
   { title: "MEDICINES", link: "" },
   { title: "LAB TESTS", link: "" },
@@ -61,9 +62,9 @@ export default function NavBar() {
             alignItems={"center"}
             justifyContent={"space-between"}>
             <Box>
-              {/* <Link href="/signin"> |</Link> */}
+              
               <SignIn />
-              <Link> Sign Up</Link>
+              <SignUp/>
             </Box>
             <Flex gap={10}>
               <Link>Offers</Link>

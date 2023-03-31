@@ -105,7 +105,7 @@ console.log("login",LOGIN);
   return (
     <>
     <Toaster/>
-    <Button onClick={onOpen} style={{ background: "none", fontWeight: "400",padding:"2px 3px"  }} fontSize={16}>{login?"Sign In":"Sign Up"}</Button>
+    <Button onClick={onOpen} style={{ background: "none", fontWeight: "400",padding:"2px 3px"  }} fontSize={16}>Sign Up</Button>
 
     <Modal isOpen={isOpen} onClose={onClose} size={"xl"*1.5} >
       <ModalOverlay />

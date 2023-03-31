@@ -10,8 +10,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import GenericCarouselCard from "./GenericCarouselCard";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-export default function GenericCarousel({ url, heading }) {
+export default function GenericCarousel({ url, heading, link }) {
   const [data, setdata] = useState("");
   const [slider, setSlider] = useState(data);
   var settings = {
@@ -62,9 +63,11 @@ export default function GenericCarousel({ url, heading }) {
             <Text ml={10} fontSize="25px" fontWeight={600}>
               {heading}
             </Text>
-            <Button bg={"#fe6f60"} color={"#fff"}>
-              See More
-            </Button>
+            <Link to={`${link}`}>
+              <Button bg={"#fe6f60"} color={"#fff"}>
+                See More
+              </Button>
+            </Link>
           </Flex>
           <Divider />
           <Slider {...settings} ref={(slider) => setSlider(slider)}>

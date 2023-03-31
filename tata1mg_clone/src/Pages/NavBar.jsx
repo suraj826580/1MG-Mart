@@ -37,7 +37,9 @@ export default function NavBar() {
           py={7}>
           <Flex justifyContent={"center"} alignItems={"center"} gap={10}>
             <Box>
-              <Image src={Logo} w={"100px"} />
+              <Link href="/">
+                <Image src={Logo} w={"100px"} />
+              </Link>
             </Box>
             <HStack spacing={5}>
               {navlink.map((item, id) => {
@@ -62,13 +64,12 @@ export default function NavBar() {
             alignItems={"center"}
             justifyContent={"space-between"}>
             <Box>
-              
               <SignIn />
-              <SignUp/>
+              <SignUp />
             </Box>
             <Flex gap={10}>
               <Link>Offers</Link>
-              <Link fontSize={"16px"}>
+              <Link fontSize={"16px"} href="/cart">
                 <FontAwesomeIcon icon={faCartShopping} />
               </Link>
             </Flex>

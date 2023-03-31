@@ -10,9 +10,9 @@ export const reducer = (state=init,{type,payload}) => {
     case Product_REQUEST_PENDING : 
     return {...state,isLoading:true}
     case Product_REQUEST_SUCCESS :
-        return {...state,isLoading:false,Vitamins:payload}
-        case Product_REQUEST_FAILURE :
-            return {...state,isLoading:false,isError:true}
+    return {...state,isLoading:false,Vitamins:payload}
+    case Product_REQUEST_FAILURE :
+    return {...state,isLoading:false,isError:true}
     default :return state
  }
 }

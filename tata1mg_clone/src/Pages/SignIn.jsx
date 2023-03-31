@@ -107,7 +107,7 @@ const SignIn = () => {
         onClick={onOpen}
         style={{ background: "none", fontWeight: "400" ,padding:"2px 3px" }}
         fontSize={16}>
-        {login ? "Sign In" : "Sign Up"}
+        Sign In
       </Button>
 
       <Modal isOpen={isOpen} onClose={onClose} size={"xl" * 1.5}>

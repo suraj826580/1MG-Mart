@@ -1,18 +1,15 @@
 import { Box, Image,Flex, Center } from '@chakra-ui/react'
-import { Radio, ChakraProvider,RadioGroup,Stack,  Menu,
-    MenuButton,
-    MenuList,
-    MenuItem,
-    MenuItemOption,
-    MenuGroup,
-    MenuOptionGroup,
-    MenuDivider, } from '@chakra-ui/react'
+
+import { Radio, ChakraProvider,RadioGroup,Stack,Text} from '@chakra-ui/react'
+    import {addToCart} from "../redux/CartReducer/action"
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { useLocation, useParams,Link } from 'react-router-dom'
 
 export const SingleProductPage = () => {
     const location=useLocation()
+    const dispatch=useDispatch()
   
     const [data, setData] = useState([])
     const id = useParams()
@@ -21,19 +18,26 @@ export const SingleProductPage = () => {
         axios.get(`https://quaint-fawn-dungarees.cyclic.app${pageName}`)
             .then((res) => setData(res.data))
     }, [])
-    console.log(data[+id],pageName,Id)
+
+    const handleCart=()=>{
+        const obj={pageName,Id}
+        dispatch(addToCart(obj))
+    }
+
+console.log("data",data[Id-1])
     return (
        
         <Box width="87%" margin="auto" marginTop="100px">
            <Flex>
                 <Box>   
-                    <Image width="90%" src={data[Id-1]?.image}/>
+                    <Image width="100%" height={"400px"} src={data[Id-1]?.image}/>
                 </Box>
-                <Box border="1px solid red" width="40%">    
-                <Box fontSize="28px">{data[+Id-1]?.name}</Box>
+                <Box border="1px solid red" width="40%" p="5">    
+                <Box fontSize="24px">{data[+Id-1]?.name}</Box>
                 <Box fontSize="18px" mt="4">Tata 1mg Healthcare Solutions rivate Limited</Box>
                 <Box fontWeight="bold" m="4" fontSize="16px">1475 Ratings & 457 Reviews</Box>
                 <Box width="90%">
+                    <Text fontSize={"20px"} color={"green.500"}>{data[+Id-1]?.discount}</Text>
                 <Flex m="15" border="1px solid grey">
                         <Box m="10" >
                         <Image width="80px"   src={data[+Id]?.image}/>
@@ -61,9 +65,18 @@ export const SingleProductPage = () => {
      
       <RadioGroup defaultValue='1'>
   <Stack spacing={5} m="5" >
+    <Flex>
     <Radio colorScheme='red' value='1'>
      {data[+Id]?.price}
     </Radio>
+    <Text textDecoration={"line-through"} ml={"2"}>
+        {data[+Id]?.actual_price} 
+    </Text>
+    <Text ml="2" color={"green.500"}>
+    {data[+Id]?.discount}  
+    </Text>
+    </Flex>
+   
     <Radio colorScheme='red' value='2'>
     <Box mr="5">{data[+Id]?.price} + free shipping and 3% Extra NeuCoins </Box>
       </Radio>
@@ -79,7 +92,9 @@ export const SingleProductPage = () => {
     <option value="5">5</option>
  </select>
  </Box>
- <Box mt="5" ml="10" mb="10" backgroundColor="orange" width="80%">Add To Cart</Box>
+
+ <Box mt="5" ml="10" mb="10" backgroundColor="orange" width="80%" onClick={handleCart}>
+  <Link to="/cart"> Add To Cart</Link> </Box>
  </RadioGroup>
 </ChakraProvider>
 </Box>

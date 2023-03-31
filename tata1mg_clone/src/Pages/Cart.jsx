@@ -1,42 +1,32 @@
-
-import React,{useState,useEffect} from 'react'
-import axios from 'axios'
-import { useSelector } from 'react-redux'
-import { Box, Image, Flex } from '@chakra-ui/react'
+import React from "react";
+import { useSelector } from "react-redux";
+import { Container, Text, Grid, Box, Image } from "@chakra-ui/react";
+import EmptyCart from "./Cart/EmptyCart";
+import CartList from "./Cart/CartList";
+import { CartTotal } from "./Cart/CartTotal";
 export const Cart = () => {
-    const [data,setData]=useState([])
-    useEffect(()=>{
-        axios.get("https://quaint-fawn-dungarees.cyclic.app/lending_Page")
-        .then((res)=>setData(res.data.medicine_Offers))
-    },[])
-    console.log(data.image)
-   // const cart=useSelector(store=>store.Cart)
-  return (
-    
-    <Flex >
-    <Box border="1px solid red" width="60%">
-        {data?.map((el)=>{
-            return <Flex >
-         <Box>
-             <Image width={"100px"} src={el.image}/>
-            </Box>
-            <Box>
-                <Box>
-                    {el.title}
-                </Box>
-            </Box>
-            </Flex>
-           
-})}
-         </Box>
-        <Box ml="30">
-            <Box>Total Price</Box>
-            <Box>Discount</Box>
-            <Box>To be paid</Box>
-            <Box>Total Saving</Box>
-            <Box>Checkout</Box>
-        </Box>
-    </Flex>
-   
-  )
-}
+    const cart = useSelector(store => store.CartReducer.cart)
+    console.log(cart)
+    return (
+        <Container maxW="7xl" marginY="30px">
+            <Text color="#2f3337" fontSize="2xl" marginBottom="20px">
+                Shopping Cart
+            </Text>
+            <Grid
+                templateColumns={[
+                    "repeat(2, 1fr)",
+                    "repeat(2, 1fr)",
+                    "repeat(2, 1fr)",
+                    "repeat(4, 1fr)",
+                    "repeat(4, 1fr)",
+                    "repeat(4, 1fr)",
+                ]}
+                gap={4}
+            >
+                {cart.length === 0 ? <EmptyCart /> : <CartList />}
+                <CartTotal />
+            </Grid>
+        </Container>
+    );
+};
+

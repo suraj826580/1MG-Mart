@@ -1,4 +1,4 @@
-import { Box,Image,Flex } from "@chakra-ui/react";
+import { Box,Image,Flex,Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 export const ProductCart = ({image,name,amount,price,id,actual_price,discount}) => {
@@ -14,6 +14,7 @@ export const ProductCart = ({image,name,amount,price,id,actual_price,discount}) 
       <Box color={"green.400"}> {discount}</Box>
       </Flex>
       <Box fontSize={"22px"}> ₹ {price}</Box>
+      <Button width={"100%"} mt="5">Add To Cart</Button>
     </Link>
     </Box>
   );

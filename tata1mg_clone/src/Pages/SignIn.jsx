@@ -21,8 +21,8 @@ import { SignUp } from "../redux/Authication/action";
 
 import { useDispatch, useSelector } from "react-redux";
 const SignIn = () => {
-  const [login, setlogin] = useState(false);
-  const [signup, setsignup] = useState(false);
+  const [login, setlogin] = useState(true);
+  const [signup, setsignup] = useState(true);
   const [Auth, setAuth] = useState(false);
   const [email, setemail] = useState("");
   const [email1, setemail1] = useState("");
@@ -105,7 +105,7 @@ const SignIn = () => {
       <Button
         as={"Text"}
         onClick={onOpen}
-        style={{ background: "none", fontWeight: "400" }}
+        style={{ background: "none", fontWeight: "400" ,padding:"2px 3px" }}
         fontSize={16}>
         {login ? "Sign In" : "Sign Up"}
       </Button>

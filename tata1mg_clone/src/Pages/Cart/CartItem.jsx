@@ -5,10 +5,11 @@ import { removeFromCart, updateCart, updateCartItemQuantity } from "../../redux/
 import { useDispatch } from "react-redux";
 
 const CartItem = ({ id,image,price,quantity,rating,name,total_purchase,actual_price,discount}) => {
+  console.log(actual_price)
   const dispatch=useDispatch()
   const handleUpdateQuantity = (e) => {
     const {value}=e.target
-    const obj={id,value}
+    const obj={image,value}
     dispatch(updateCartItemQuantity(obj))
     console.log(quantity)
   };

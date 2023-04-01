@@ -2,13 +2,15 @@ import { useEffect,useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {useLocation, useNavigate } from "react-router-dom";
 import {Box,Flex, Spinner,SimpleGrid } from "@chakra-ui/react"
-import {VitaminsData} from "../redux/Products/action"
+import {SkinCare, Supplements} from "../redux/Products/action"
 import { useSearchParams } from "react-router-dom";
 import { ProductCart } from "./ProductCard";
 
-export const VitaminsPage = () => {
+export const SupplementsPage = () => {
+
   const dispatch=useDispatch()
   const store=useSelector(store=>store.ProductsReducer)
+  console.log(store)
   console.log(store.isLoading)
     const [order,setOrder]=useState("")
 
@@ -23,7 +25,7 @@ export const VitaminsPage = () => {
       _order:order
       }
     }
-    dispatch(VitaminsData(order&&paramsobj))
+    dispatch(Supplements(order&&paramsobj))
    },[order])
    return(
     <Box>
@@ -72,7 +74,7 @@ spacing={7}
 paddingY="20px"
 mr={"10"}
 >
-{store.Vitamins?.map((product) => (
+{store.Supplements?.map((product) => (
   <ProductCart key={product.id} {...product} />
 ))}
 </SimpleGrid>

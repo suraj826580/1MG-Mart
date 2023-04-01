@@ -1,10 +1,11 @@
 import { Box,Image,Flex,Button } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export const ProductCart = ({image,name,amount,price,id,actual_price,discount}) => {
+  const location=useLocation()
   return (
       <Box  mt="10" ml="5" p="5"  boxShadow= " rgba(0, 0, 0, 0.35) 0px 5px 10px">
-      <Link to={`/vitamins/:${id}` }>
+      <Link to={`${location.pathname}/:${id}` }>
       <Image m="auto" src={image} alt="" width={"100%"} height={"200px"}/>
       <Box fontSize={"16px"} >{name.substring(0,40)}</Box>
       <Box >{amount}</Box>

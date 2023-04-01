@@ -7,7 +7,7 @@ const initalState={
 switch(type){
   
   case ADD_TO_CART :
-    const existingItem = state.cart.find(item => item.id === payload.id);
+    const existingItem = state.cart.find(item => item.image === payload.image);
     if(!existingItem){
   return{
     ...state,cart:[...state.cart,payload]
@@ -21,7 +21,7 @@ switch(type){
     return {
       ...state,
       cart: state.cart.map((item) =>
-        item.id === payload.id
+        item.image === payload.image
           ? { ...item, quantity: payload.value }
           : item
       ),

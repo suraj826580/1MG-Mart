@@ -63,7 +63,7 @@ export default function GenericCarousel({ url, heading, link }) {
             <Text ml={10} fontSize="25px" fontWeight={600}>
               {heading}
             </Text>
-            <Link to={`${link}`}>
+            <Link to={`/${link}`}>
               <Button bg={"#fe6f60"} color={"#fff"}>
                 See More
               </Button>

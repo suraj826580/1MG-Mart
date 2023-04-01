@@ -15,7 +15,8 @@ const CartItem = ({ id,image,price,quantity,rating,name,total_purchase,actual_pr
   };
 
   const handleRemoveItem = () => {
-  dispatch(removeFromCart(id))
+    console.log(image)
+  dispatch(removeFromCart(image))
   };
 
   return (

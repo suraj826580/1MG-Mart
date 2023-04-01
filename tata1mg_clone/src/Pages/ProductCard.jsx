@@ -1,8 +1,26 @@
-import { Box,Image,Flex,Button } from "@chakra-ui/react";
+import { Box,Image,Flex,Button ,useToast} from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
-
+import { addToCart } from "../redux/CartReducer/action";
 export const ProductCart = ({image,name,amount,price,id,actual_price,discount}) => {
+  const toast = useToast()
   const location=useLocation()
+  const dispatch=useDispatch()
+  const [pageName]=location.pathname.split("/:")
+
+  const handleAddToCart=()=>{
+    const Id=id
+    const obj={pageName,Id}
+    console.log(pageName,Id)
+    dispatch(addToCart(obj))
+    toast({
+        title: 'cart Update.',
+        description: "your product is added",
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      })
+  }
   return (
       <Box  mt="10" ml="5" p="5"  boxShadow= " rgba(0, 0, 0, 0.35) 0px 5px 10px">
       <Link to={`${location.pathname}/:${id}` }>
@@ -15,8 +33,8 @@ export const ProductCart = ({image,name,amount,price,id,actual_price,discount}) 
       <Box color={"green.400"}> {discount}</Box>
       </Flex>
       <Box fontSize={"22px"}> ₹ {price}</Box>
-      <Button width={"100%"} mt="5">Add To Cart</Button>
     </Link>
+    <Button width={"100%"} mt="5" onClick={handleAddToCart}>Add To Cart</Button>
     </Box>
   );
 };

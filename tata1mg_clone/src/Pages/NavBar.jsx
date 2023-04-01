@@ -8,13 +8,14 @@ import {
   Divider,
   Button,
 } from "@chakra-ui/react";
-
+import {Link as ReactLink} from "react-router-dom"
 import Logo from "../image/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import DropDowns from "./DropDowns";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
+import { useSelector } from "react-redux";
 const navlink = [
   { title: "MEDICINES", link: "" },
   { title: "LAB TESTS", link: "" },
@@ -25,6 +26,7 @@ const navlink = [
 ];
 
 export default function NavBar() {
+  const cart=useSelector(store=>store.CartReducer.cart)
   return (
     <>
       <Box px={0}>
@@ -37,9 +39,9 @@ export default function NavBar() {
           py={7}>
           <Flex justifyContent={"center"} alignItems={"center"} gap={10}>
             <Box>
-              <Link href="/">
+              <ReactLink to="/">
                 <Image src={Logo} w={"100px"} />
-              </Link>
+              </ReactLink>
             </Box>
             <HStack spacing={5}>
               {navlink.map((item, id) => {
@@ -69,9 +71,10 @@ export default function NavBar() {
             </Box>
             <Flex gap={10}>
               <Link>Offers</Link>
-              <Link fontSize={"16px"} href="/cart">
+              <ReactLink fontSize={"16px"} to="/cart">
                 <FontAwesomeIcon icon={faCartShopping} />
-              </Link>
+                <span style={{color:"green",textDecoration:"none"}}>{cart.length}</span>
+              </ReactLink>
             </Flex>
             <Flex ml={5}>
               <Link>Need Help?</Link>

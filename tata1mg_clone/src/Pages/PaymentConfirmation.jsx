@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -8,16 +8,20 @@ const PaymentConfirmation = () => {
   const [state, setstate] = useState(false);
   const dispatch=useDispatch()
   const navigate = useNavigate();
-  if (!state) {
-    setTimeout(function () {
-      toast("Otp is 8787", {});
-    }, 3000);
-  }
-  if (state) {
-    setTimeout(function () {
-      navigate("/");
-    }, 5000);
-  }
+
+  useEffect(()=>{
+    if (!state) {
+    
+        toast("8785", {});
+     
+    }
+  },[])
+ 
+  // if (state) {
+  //   setTimeout(function () {
+  //     navigate("/");
+  //   }, 5000);
+  // }
 
   const handleclick = (e) => {
     dispatch(emptyCart)
@@ -58,7 +62,7 @@ const PaymentConfirmation = () => {
           />
           <h1>Payment received</h1>
           <p>Your transaction was successful!</p>
-          <h4>You will redirect to Home Page after 5sec . . .</h4>
+         <button onClick={()=> navigate("/")}>Continue To Shopping...</button>
         </DIV2>
       )}
     </>
@@ -79,6 +83,7 @@ const DIV = styled.div`
     width: 70%;
     margintop: 40px;
     outline: none;
+    text-align: center;
   }
   button {
     width: 60%;
@@ -89,27 +94,39 @@ const DIV = styled.div`
     margin-top: 30px;
     margin-bottom: 30px;
     font-weight: 500;
+    margin-left: 10%;
+    
   }
 `;
 const DIV2 = styled.div`
   width: 30%;
   margin: auto;
   height: auto;
-
+  margin-left: 38%;
   margin-top: 50px;
 
   h1 {
     font-weight: 600;
     font-size: 30px;
+    margin-left: 10%;
   }
   img {
-    margin-left: 40%;
+    margin-left: 30%;
   }
   p {
     font-weight: 500;
     font-size: 15px;
+    margin-left: 12%;
   }
-  h4 {
-    margin-top: 5px;
+  button{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-left: 13%;
+   
+    background:#0BA0BE;
+    color:white;
+    font-weight: 500;
+    font-size: 15px;
+    padding:5px 30px;
   }
 `;

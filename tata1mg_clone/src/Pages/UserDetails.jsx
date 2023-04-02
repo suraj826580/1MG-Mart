@@ -136,11 +136,7 @@ const UserDetails = () => {
       </form>
     </DIV></div>
       :<div>{<CheckDetails data={data} />}</div>}
-     
-      
-      
- 
-      
+       
     </MAINDIV>
   );
 };

@@ -16,8 +16,8 @@ const CheckDetails = ({data}) => {
       <p>Address : {data.Address}</p>
       <p>State : {data.State}</p>
       <p>District: { data.District}</p>
-      <p>Taluka : {data.Taluka}</p>
-      <p>City : {data.City}</p>
+       <p>City : {data.City}</p>
+      <p>House No : {data.House_No}</p>
       <p>Phone No : {data.Phone_No}</p>
       <p>LandMark : {data.Landmark}</p>
       <p>Pincode : {data.Pincode}</p></DIV1>

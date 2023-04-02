@@ -11,12 +11,16 @@ const PaymentConfirmation = () => {
 
   useEffect(()=>{
     if (!state) {
-    
-        toast("8785", {});
+      toast("Otp is 7711", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
      
     }
   },[])
- 
   // if (state) {
   //   setTimeout(function () {
   //     navigate("/");

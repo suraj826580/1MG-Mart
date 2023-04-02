@@ -11,8 +11,8 @@ const UserDetails = () => {
     Phone_No: "",
     State: "",
     District: "",
-    Taluka: "",
     City: "",
+    House_No: "",
     Pincode: "",
     Locality: "",
   };
@@ -92,16 +92,17 @@ const UserDetails = () => {
                 name="District"
                 onChange={handlechange}
               />
-              <input
-                type="text"
-                placeholder="Taluka"
-                name="Taluka"
-                onChange={handlechange}
-              />
+            
               <input
                 type="text"
                 placeholder="City"
                 name="City"
+                onChange={handlechange}
+              />
+                <input
+                type="text"
+                placeholder="House No"
+                name="House_No"
                 onChange={handlechange}
               />
               <input

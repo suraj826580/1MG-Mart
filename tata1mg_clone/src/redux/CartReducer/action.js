@@ -17,3 +17,8 @@ export const updateCartItemQuantity = (obj) =>(dispatch)=> {
     dispatch({type:types.UPDATE_CART_ITEM_QUANTITY,payload:obj})
 
 }
+
+export const emptyCart = (dispatch)=> {
+  dispatch({type:types.EMPTY_CART})
+
+}

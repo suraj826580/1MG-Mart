@@ -16,7 +16,7 @@ export const CartTotal = () => {
       (accumulator, currentItem) =>
         accumulator +
         (currentItem.actual_price - currentItem.price) *
-          Number(currentItem.quantity),
+        Number(currentItem.quantity),
       0
     );
     setPrice(Price);
@@ -50,7 +50,7 @@ export const CartTotal = () => {
           ₹ {price - discount}
         </Text>
       </Flex>
-      <Flex justifyContent="space-between" marginTop="10px">
+      <Flex justifyContent="space-between" marginTop="10px" mb="5">
         <Text as="b" fontSize="xl">
           Total Saving
         </Text>
@@ -59,9 +59,18 @@ export const CartTotal = () => {
         </Text>
       </Flex>
       <Link to="/userDetails">
-        <Center py={3}>
-          <Button>Payment</Button>
-        </Center>
+        <Text
+          border={"1px solid green"}
+          backgroundColor="green.500"
+          color="white"
+          margin={"auto"}
+          p="3"
+          borderRadius={"5"}
+          fontSize={"xl"}
+          textAlign={"center"}
+        >
+          Payment
+        </Text>
       </Link>
     </Box>
   );

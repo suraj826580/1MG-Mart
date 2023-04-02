@@ -1,4 +1,4 @@
-import { ADD_TO_CART,REMOVE_FROM_CART,UPDATE_CART_ITEM_QUANTITY } from "./actionTypes"
+import { ADD_TO_CART,EMPTY_CART,REMOVE_FROM_CART,UPDATE_CART_ITEM_QUANTITY } from "./actionTypes"
 
 const initalState={
     cart: [],
@@ -26,6 +26,7 @@ switch(type){
           : item
       ),
     };
+    case EMPTY_CART:return {...state,cart:[]};
     default : return state
 }
   }

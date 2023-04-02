@@ -3,7 +3,8 @@ import styled from "styled-components";
 import CheckDetails from "./CheckDetails";
 import { Center } from "@chakra-ui/react";
 const UserDetails = () => {
-  const [state, setstate] = useState(false);
+  
+  const [show,setshow]=useState(false)
   const initval = {
     Name: "",
     Surname: "",
@@ -24,7 +25,8 @@ const UserDetails = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(data);
-    setstate(true);
+    
+    setshow(true)
   };
 
   return (
@@ -32,108 +34,113 @@ const UserDetails = () => {
       <Center>
         <h1>USER DETAILS PAGE</h1>
       </Center>
-      <DIV>
-        <form action="" onSubmit={handleSubmit}>
-          <DIV1>
+      {!show ? <div><DIV>
+      <form action="" onSubmit={handleSubmit}>
+        <DIV1>
+          <input
+            type="text"
+            placeholder="Name"
+            name="Name"
+            onChange={handlechange}
+            required
+          />
+
+          <input
+            type="text"
+            placeholder="Surname"
+            name="Surname"
+            onChange={handlechange}
+            required
+          />
+          <input
+            type="number"
+            placeholder="Pincode"
+            name="Pincode"
+            onChange={handlechange}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Locality"
+            name="Locality"
+            onChange={handlechange}
+          />
+        </DIV1>
+        <div>
+          <DIV2>
             <input
               type="text"
-              placeholder="Name"
-              name="Name"
+              placeholder="Address (area & street)"
+              name="Address"
               onChange={handlechange}
               required
             />
-
+          </DIV2>
+          <DIV3>
+            <select name="State" onChange={handlechange}>
+              <option value="">--Select State--</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Aasam">Aasam</option>
+              <option value="Bhihar">Bhihar</option>
+              <option value="Goa">Goa</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Gujrat">Gujrat</option>
+              <option value="Panjab">Panjab</option>
+              <option value="Maharastra">Maharastra</option>
+            </select>
             <input
               type="text"
-              placeholder="Surname"
-              name="Surname"
+              placeholder="District"
+              name="District"
               onChange={handlechange}
-              required
+            />
+          
+            <input
+              type="text"
+              placeholder="City"
+              name="City"
+              onChange={handlechange}
+            />
+              <input
+              type="text"
+              placeholder="House No"
+              name="House_No"
+              onChange={handlechange}
+            />
+            <input
+              type="text"
+              placeholder="Landmark"
+              name="Landmark"
+              onChange={handlechange}
             />
             <input
               type="number"
-              placeholder="Pincode"
-              name="Pincode"
-              onChange={handlechange}
+              placeholder="Phone No"
+              name="Phone_No"
               required
-            />
-            <input
-              type="text"
-              placeholder="Locality"
-              name="Locality"
               onChange={handlechange}
             />
-          </DIV1>
-          <div>
-            <DIV2>
-              <input
-                type="text"
-                placeholder="Address (area & street)"
-                name="Address"
-                onChange={handlechange}
-                required
-              />
-            </DIV2>
-            <DIV3>
-              <select name="State" onChange={handlechange}>
-                <option value="">--Select State--</option>
-                <option value="Delhi">Delhi</option>
-                <option value="Aasam">Aasam</option>
-                <option value="Bhihar">Bhihar</option>
-                <option value="Goa">Goa</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Gujrat">Gujrat</option>
-                <option value="Panjab">Panjab</option>
-                <option value="Maharastra">Maharastra</option>
-              </select>
-              <input
-                type="text"
-                placeholder="District"
-                name="District"
-                onChange={handlechange}
-              />
-            
-              <input
-                type="text"
-                placeholder="City"
-                name="City"
-                onChange={handlechange}
-              />
-                <input
-                type="text"
-                placeholder="House No"
-                name="House_No"
-                onChange={handlechange}
-              />
-              <input
-                type="text"
-                placeholder="Landmark"
-                name="Landmark"
-                onChange={handlechange}
-              />
-              <input
-                type="number"
-                placeholder="Phone No"
-                name="Phone_No"
-                required
-                onChange={handlechange}
-              />
-            </DIV3>
-            <DIV4>
-              <h3>Address Type</h3>
-              <input type="radio" />
-              <label htmlFor="">Home (All Day Delivery)</label>
-              <input type="radio" />
-              <label htmlFor="">Work (Between 10AM to 5PM)</label>
-            </DIV4>
-            <BUTDIV>
-              {" "}
-              <button type="submit">SAVE AND CONTINUE</button>
-            </BUTDIV>
-          </div>
-        </form>
-      </DIV>
-      {state && <CheckDetails data={data} />}
+          </DIV3>
+          <DIV4>
+            <h3>Address Type</h3>
+            <input type="radio" />
+            <label htmlFor="">Home (All Day Delivery)</label>
+            <input type="radio" />
+            <label htmlFor="">Work (Between 10AM to 5PM)</label>
+          </DIV4>
+          <BUTDIV>
+            {" "}
+            <button type="submit">SAVE AND CONTINUE</button>
+          </BUTDIV>
+        </div>
+      </form>
+    </DIV></div>
+      :<div>{<CheckDetails data={data} />}</div>}
+     
+      
+      
+ 
+      
     </MAINDIV>
   );
 };

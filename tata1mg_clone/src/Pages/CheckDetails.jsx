@@ -24,7 +24,7 @@ const CheckDetails = ({data}) => {
       
     
     </DIV>
-    <BUTDIV> <button ><Link to="/paymentpage">Procced To Payment</Link></button></BUTDIV>
+    <Link to="/paymentpage"><BUTDIV> <button >Procced To Payment</button></BUTDIV></Link>
     </>
   )
 }

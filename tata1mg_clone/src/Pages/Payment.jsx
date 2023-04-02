@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "react-credit-cards-2";
 import styled from "styled-components";
 
@@ -11,8 +11,10 @@ import {
 
 import "react-credit-cards-2/es/styles-compiled.css";
 import { Link } from "react-router-dom";
+import { Center } from "@chakra-ui/react";
 
 export default class Payment extends React.Component {
+
   state = {
     number: "",
     name: "",
@@ -63,12 +65,16 @@ export default class Payment extends React.Component {
 
   render() {
     const { name, number, expiry, cvc, focused, formData } = this.state;
-
+   
     return (
       <MAINDIV key="Payment">
         <div className="App-payment">
-          <h1>PAYMENT PAGE</h1>
-          <Card
+         
+       
+          <Center>  <img style={{marginTop:"2%"}} src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/batman-returns/logos/Wallets.gif" alt="" /></Center>
+       
+        <div>
+        <Card
             number={number}
             name={name}
             expiry={expiry}
@@ -159,9 +165,16 @@ export default class Payment extends React.Component {
             </DIV>
           </form>
 
-          {formData && (
+        </div>
+         
+            
+           
+
+              
+                
+<div> {formData && (
             <DETAILS className="App-highlight">
-              <h1>Your Details</h1>
+              <h1>Check Your Details</h1>
               {formatFormData(formData).map((d, i) => (
                 <div>
                   <div key={i}>{d}</div>
@@ -174,13 +187,15 @@ export default class Payment extends React.Component {
                     color: "white",
                     border: "none",
                     padding: "5px 50px",
+                    marginTop:"5px"
                   }}>
                   CONTINUE
                 </button>
               </Link>
             </DETAILS>
-          )}
-          <hr style={{ margin: "60px 0 30px" }} />
+          )}  
+          </div>
+                 <hr style={{ margin: "60px 0 30px" }} />
         </div>
       </MAINDIV>
     );
@@ -221,4 +236,5 @@ const DETAILS = styled.div`
   width: 25%;
   margin: auto;
   border: 1px solid gray;
+  padding:20px;
 `;

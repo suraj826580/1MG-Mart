@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { useDispatch } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { emptyCart } from "../redux/CartReducer/action";
 const PaymentConfirmation = () => {
   const [state, setstate] = useState(false);
+  const dispatch=useDispatch()
   const navigate = useNavigate();
   if (!state) {
     setTimeout(function () {
@@ -17,6 +20,7 @@ const PaymentConfirmation = () => {
   }
 
   const handleclick = (e) => {
+    dispatch(emptyCart)
     e.preventDefault();
     setTimeout(function () {
       setstate(true);

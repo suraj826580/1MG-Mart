@@ -32,6 +32,7 @@ const Signup = () => {
  let EML=JSON.parse(localStorage.getItem("email"))
     
     if(SIGNUP && email1===EML){
+      window. location. reload(true)
       toast.success('Login Successfully ...', {
         style: {
           border: '1px solid #713200',

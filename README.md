@@ -5,7 +5,7 @@
 3.IA Manager - Debobrota-haldar
 
 #Built The Project Using the following technologies;
-
+# Tech Stacks
 1.HTML
 2.CSS
 3.JavaScript
